@@ -12,7 +12,7 @@ export default function CategoryContent({
 }: CategoryContentProps) {
 
     const groupedColumns =
-        activeCategory.children?.reduce((columns, child) => {
+        activeCategory.children.reduce((columns, child) => {
 
             if (!columns[child.column_number]) {
                 columns[child.column_number] = [];

@@ -8,13 +8,14 @@ import { Category } from "@/types/categories";
 
 interface HeaderBottomProps {
     categories: Category[];
+    categoriesError: boolean;
 }
-export default function HeaderBottom({ categories } : HeaderBottomProps) {
+export default function HeaderBottom({ categories, categoriesError } : HeaderBottomProps) {
   return (
     <div className="hidden lg:flex items-center justify-between min-h-[50px] px-8 border-t border-gray-100">
 
       <div className="flex items-center gap-1">
-        <MegaMenu categories={categories}/>
+        <MegaMenu categories={categories} categoriesError={categoriesError}/>
         <Separator orientation="vertical" className="h-6 my-auto mx-2" />
         {NAV.map((n) => {
           const Icon = n.i;

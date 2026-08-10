@@ -27,7 +27,7 @@ export default function SubCategoryItem({
 
             <div className="mr-5 space-y-2 flex flex-col">
 
-                {item.children?.map((child) => (
+                {item.children.map((child) => (
 
                     <Link
                         key={child.id}

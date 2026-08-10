@@ -17,7 +17,7 @@ export default function CategoryContent({ category }: CategoryContentProps) {
                 </h2>
                 <ChevronLeftIcon className="w-3 h-3 text-primary" />
             </Link>
-            <SubCategoryAccordion categories={category.children ?? []}/>
+            <SubCategoryAccordion subCategories={category.children}/>
         </>
     )
 }

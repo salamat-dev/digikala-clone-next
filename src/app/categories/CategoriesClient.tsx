@@ -17,9 +17,10 @@ export default function CategoriesClient({
   const [activeCategory, setActiveCategory] = useState(categories[0]);
 
   return (
-    <div className="grid h-[calc(100dvh-128px)] grid-cols-[80px_1fr] md:grid-cols-[110px_1fr] lg:hidden">
+    <div className="grid h-full min-h-0 grid-cols-[80px_1fr] overflow-hidden hide-scrollbar md:grid-cols-[110px_1fr]">
+      
       {/* Right */}
-      <aside className="overflow-y-auto bg-muted hide-scrollbar">
+      <aside className="min-h-0 overflow-y-auto bg-muted hide-scrollbar">
         {categories.map((category) => (
           <CategoryItem
             key={category.id}
@@ -31,9 +32,10 @@ export default function CategoriesClient({
       </aside>
 
       {/* Left */}
-      <main className="overflow-y-auto bg-background hide-scrollbar">
+      <main className="min-h-0 overflow-y-auto bg-background hide-scrollbar">
         <CategoryContent category={activeCategory} />
       </main>
+
     </div>
   );
 }

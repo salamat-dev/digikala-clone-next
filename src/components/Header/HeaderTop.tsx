@@ -4,31 +4,35 @@ import Link from "next/link";
 import {
   ShoppingBagIcon,
   UserCircleIcon,
-  MagnifyingGlassIcon,
   Bars3Icon,
   BuildingStorefrontIcon,
 } from "@heroicons/react/24/outline";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import Search from "./search/Search";
+
 
 interface HeaderTopProps {
   onDrawerOpen: () => void;
-  onSearchOpen: () => void;
 }
 
-export default function HeaderTop({ onDrawerOpen, onSearchOpen }: HeaderTopProps) {
+export default function HeaderTop({ onDrawerOpen }: HeaderTopProps) {
   return (
     <div className="flex items-center justify-between h-[60px] md:h-[80px] px-4 md:px-6">
 
       {/* Logo */}
-      <Button variant="ghost" size="sm" asChild className="hover:bg-transparent px-0 gap-1.5">
-        <Link href="/">
-          <span className="font-poppins font-extrabold text-[15px] sm:text-[17px] md:text-[20px] text-[#1A237E]">
-            YOUR<span className="text-[#00B0FF]">SHOP</span>
-          </span>
-          <BuildingStorefrontIcon className="w-8 h-8 text-[#00B0FF]" />
-        </Link>
-      </Button>
+      <div className="relative flex gap-2 items-center">
+        <Button variant="ghost" size="sm" asChild className="hover:bg-transparent px-0 gap-1.5">
+          <Link href="/">
+            <span className="font-poppins font-extrabold text-[15px] sm:text-[17px] md:text-[20px] text-[#1A237E]">
+              Tahamtan<span className="text-[#00B0FF]">SHOP</span>
+            </span>
+            <BuildingStorefrontIcon className="w-8 h-8 text-[#00B0FF]" />
+          </Link>
+        </Button>
+
+        <Search/>
+      </div>
 
       {/* Actions */}
       <div className="flex items-center gap-1 md:gap-4">
@@ -58,11 +62,6 @@ export default function HeaderTop({ onDrawerOpen, onSearchOpen }: HeaderTopProps
           </Link>
         </Button>
 
-        {/* Search */}
-        <Button variant="ghost" size="icon" className="text-[#1A237E]" onClick={onSearchOpen}>
-          <MagnifyingGlassIcon className="w-5 h-5" />
-          <span className="sr-only">جستجو</span>
-        </Button>
 
       </div>
     </div>

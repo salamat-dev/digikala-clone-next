@@ -6,15 +6,15 @@ import {
 } from "@/components/ui/accordion";
 import SubCategoryAccordionItem from "./SubCategoryAccordionItem";
 
-interface CategoryAccordionProps {
-    categories:SubCategory[];
+interface SubCategoryAccordionProps {
+    subCategories:SubCategory[];
 }
 
-export default function SubCategoryAccordion({ categories } : CategoryAccordionProps) {
+export default function SubCategoryAccordion({ subCategories } : SubCategoryAccordionProps) {
   return (
     <Accordion type="multiple" className="w-full">
-        {categories.map((category) => (
-            <SubCategoryAccordionItem key={category.id} category={category}/>
+        {subCategories.map((subCategory) => (
+            <SubCategoryAccordionItem key={subCategory.id} subCategory={subCategory}/>
         ))}
     </Accordion>
   )

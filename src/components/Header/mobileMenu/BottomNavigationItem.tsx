@@ -50,17 +50,18 @@ const isActive =
   const Icon = isActive ? solidIcons[item.icon] : outlineIcons[item.icon];
 
   return (
-    <Link
-      href={item.href}
-      className={`flex flex-col items-center justify-center gap-1 text-xs transition-colors ${isActive
-          ? "text-primary font-medium"
-          : "text-muted-foreground hover:text-foreground"
-        }`}
-    >
-      <Icon className="h-6 w-6" />
+<Link
+  href={item.href}
+  className={`flex flex-1 flex-col items-center justify-center gap-1 text-xs transition-colors ${
+    isActive
+      ? "font-medium text-primary"
+      : "text-muted-foreground hover:text-foreground"
+  }`}
+>
+  <Icon className="h-6 w-6" />
 
-      <span>{item.label}</span>
-    </Link>
+  <span>{item.label}</span>
+</Link>
   );
 
 }

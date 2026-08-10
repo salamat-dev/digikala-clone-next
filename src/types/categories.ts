@@ -33,7 +33,7 @@ interface BaseCategory {
 
 export interface CategoryLeaf extends BaseCategory {
   row_number: number;
-  image?: string;
+  image: string;
 }
 
 /* ---------- Level 2 ---------- */
@@ -41,7 +41,7 @@ export interface CategoryLeaf extends BaseCategory {
 export interface SubCategory extends BaseCategory {
   column_number: number;
   row_number: number;
-  children?: CategoryLeaf[];
+  children: CategoryLeaf[];
 }
 
 /* ---------- Level 1 ---------- */
@@ -50,7 +50,7 @@ export interface Category extends BaseCategory {
   plp_url: CategoryUrl;
   row_number: number;
   icon?: string;
-  children?: SubCategory[];
+  children: SubCategory[];
 }
 
 /* ---------- API Response ---------- */

@@ -13,22 +13,22 @@ import {
 } from "@/components/ui/accordion";
 
 interface SubCategoryAccordionItemProps {
-  category: SubCategory;
+  subCategory: SubCategory;
 }
 
 export default function SubCategoryAccordionItem({
-  category,
+  subCategory,
 }: SubCategoryAccordionItemProps) {
-  const visibleChildren = category.children?.slice(0, 11) ?? [];
-  const hasChildren = (category.children?.length ?? 0) > 0;
+  const visibleChildren = subCategory.children.slice(0, 11) ?? [];
+  const hasChildren = (subCategory.children.length ?? 0) > 0;
 
 if (!hasChildren) {
   return (
     <Link
-      href={category.url.url}
+      href={subCategory.url.url}
       className="flex items-center border-b border-border/50 px-4 py-4 text-[13px]"
     >
-      <span>{category.title}</span>
+      <span>{subCategory.title}</span>
 
       
     </Link>
@@ -37,7 +37,7 @@ if (!hasChildren) {
 
   return (
     <AccordionItem
-      value={String(category.id)}
+      value={String(subCategory.id)}
       className="border-b border-border/50 px-4"
     >
       <AccordionTrigger
@@ -51,7 +51,7 @@ if (!hasChildren) {
           [&_[data-slot=accordion-trigger-icon]]:ml-0
         "
       >
-        {category.title}
+        {subCategory.title}
       </AccordionTrigger>
 
       <AccordionContent className="grid grid-cols-3 gap-x-4 gap-y-6 py-3 [&_a]:no-underline h-auto">
@@ -62,7 +62,7 @@ if (!hasChildren) {
             href={child.url.url}
             className="flex flex-col items-center text-center"
           >
-            <figure className="m-0 flex bg-muted h-16 w-16 items-center justify-center overflow-hidden rounded-full border">
+            <figure className="m-0 flex bg-neutral-100  h-15 w-15 items-center justify-center overflow-hidden rounded-full border">
               <Image
                 src={child.image}
                 alt={child.title}
@@ -79,10 +79,10 @@ if (!hasChildren) {
         ))}
 
         <Link
-          href={category.url.url}
+          href={subCategory.url.url}
           className="flex flex-col items-center text-center"
         >
-          <figure className="m-0 flex h-16 w-16 items-center justify-center rounded-full border bg-white">
+          <figure className="m-0 flex h-15 w-15 items-center justify-center rounded-full border bg-white">
             <IconLayoutGrid
               size={24}
               stroke={1.7}
