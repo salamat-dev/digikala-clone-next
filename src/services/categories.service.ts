@@ -1,4 +1,4 @@
-import { cache } from "react";
+import { unstable_cache } from "next/cache";
 import api from "./axios";
 import type { Category, CategoriesResponse } from "@/types/categories";
 
@@ -15,12 +15,18 @@ function normalizeCategories(categories: Category[]): Category[] {
   }));
 }
 
-export const getCategories = cache(async (): Promise<Category[]> => {
-  const { data } = await api.get<CategoriesResponse>("/categories");
+export const getCategories = unstable_cache(
+  async (): Promise<Category[]> => {
+    const { data } = await api.get<CategoriesResponse>("/categories");
 
-  if (!Array.isArray(data.result)) {
-    throw new Error("Categories API returned an invalid response.");
+    if (!Array.isArray(data.result)) {
+      throw new Error("Categories API returned an invalid response.");
+    }
+
+    return normalizeCategories(data.result);
+  },
+  ["categories"],
+  {
+    revalidate: 3600,
   }
-
-  return normalizeCategories(data.result);
-});
+);

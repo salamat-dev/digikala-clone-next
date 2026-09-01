@@ -12,7 +12,7 @@ interface HeaderBottomProps {
 }
 export default function HeaderBottom({ categories, categoriesError } : HeaderBottomProps) {
   return (
-    <div className="hidden lg:flex items-center justify-between min-h-[50px] px-8 border-t border-gray-100">
+    <div className="hidden lg:flex items-center justify-between min-h-12.5 px-8 border-t border-gray-100">
 
       <div className="flex items-center gap-1">
         <MegaMenu categories={categories} categoriesError={categoriesError}/>
@@ -31,9 +31,9 @@ export default function HeaderBottom({ categories, categoriesError } : HeaderBot
       </div>
 
       <div className="flex items-center gap-3">
-        <div className="text-right">
-          <p className="text-[11px] text-muted-foreground block">AmirMahdi</p>
-          <p className="text-sm font-extrabold">+98 937 335 5740</p>
+        <div className="text-left">
+          <p className="text-[11px] text-muted-foreground">AmirMahdi</p>
+          <p dir="ltr" className="text-sm font-extrabold">+98 937 335 5740</p>
         </div>
         <Button size="icon-sm" className="bg-[#00B0FF] hover:bg-[#0081cb] text-white rounded-lg">
           <PhoneIcon className="w-4 h-4" />

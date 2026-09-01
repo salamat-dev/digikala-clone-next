@@ -28,7 +28,6 @@ export function useSearch(query: string) {
       }
     }, 1000);
 
-    console.log("SEARCH REQUEST:", keyword);
     return () => clearTimeout(timer);
   }, [query]);
 

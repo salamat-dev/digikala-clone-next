@@ -17,8 +17,17 @@ export interface CategoryUrlParams {
 
 export interface CategoryUrl {
   url: string;
-  page: CategoryPage;
-  params: CategoryUrlParams;
+  page: string;
+  params?: {
+    category_id?: number;
+    brand_id?: number;
+    url?: string;
+  };
+  queries?: {
+    sort?: number;
+    price?: { min?: number; max?: number };
+    attributes?: unknown;
+  };
 }
 
 /* ---------- Base Category ---------- */
@@ -59,3 +68,4 @@ export interface CategoriesResponse {
   status: number;
   result: Category[];
 }
+

@@ -35,7 +35,7 @@ export default function DesktopSearch() {
         <PopoverContent
           align="start"
           sideOffset={7}
-          className="z-[9999] w-[var(--radix-popover-trigger-width)] p-0 rounded-tr-sm rounded-tl-sm"
+          className="z-9999 w-[var(--radix-popover-trigger-width)] p-0 rounded-tr-sm rounded-tl-sm"
           onOpenAutoFocus={(event) => {
             event.preventDefault();
           }}

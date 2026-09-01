@@ -25,10 +25,10 @@ export default function MobileSearch() {
       <DialogTrigger asChild>
         <Button
           variant="ghost"
-          size="icon"
+          size="lg"
           className="rounded-full text-primary"
         >
-          <MagnifyingGlassIcon className="w-6 h-6" />
+          <MagnifyingGlassIcon className="min-w-5 min-h-5" />
         </Button>
       </DialogTrigger>
 
