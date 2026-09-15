@@ -5,6 +5,7 @@ interface SubCategoryColumnProps {
   items: SubCategory[];
 }
 
+/* یک ستون از زیرشاخه‌های مگامنو */
 export default function CategoryColumn({ items }: SubCategoryColumnProps) {
   return (
     <div className="w-58 shrink-0 space-y-3">

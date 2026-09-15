@@ -1,3 +1,4 @@
+/* حالت خطای صفحه‌ی محصولات با دکمه‌ی تلاش دوباره */
 "use client";
 
 export default function Error({ reset }: { reset: () => void }) {

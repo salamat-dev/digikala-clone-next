@@ -7,6 +7,7 @@ interface CategoryListProps {
   onHover: (category: Category) => void;
 }
 
+/* ستون سمت راست مگامنو: فهرست دسته‌های اصلی */
 export default function CategoryList({
   categories,
   activeCategory,

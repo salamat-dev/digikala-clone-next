@@ -15,6 +15,7 @@ function normalizeCategories(categories: Category[]): Category[] {
   }));
 }
 
+/* درخت دسته‌بندی‌ها را می‌گیرد و کش می‌کند (منبع مگامنو و آکاردئون موبایل) */
 export const getCategories = unstable_cache(
   async (): Promise<Category[]> => {
     const { data } = await api.get<CategoriesResponse>("/categories");

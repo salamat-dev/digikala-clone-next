@@ -1,3 +1,4 @@
+/* نگاشت نام آیکون دسته‌بندی به کامپوننت آیکون */
 import {
   IconDeviceMobile,
   IconDeviceLaptop,

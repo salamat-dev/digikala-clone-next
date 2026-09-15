@@ -6,15 +6,19 @@ interface SearchResultListProps {
   loading: boolean;
   query: string;
   products: SearchProduct[];
+  /* بعد از کلیک روی نتیجه، پنل جستجو را می‌بندد */
+  onSelect: () => void;
 }
 
+/* فهرست نتایج جستجو */
 export default function SearchResultList({
   loading,
   query,
   products,
+  onSelect,
 }: SearchResultListProps) {
   return (
-    <div className="h-full lg:max-h-[420px] overflow-y-auto hide-scrollbar">
+    <div className="h-full overflow-y-auto hide-scrollbar lg:max-h-[420px]">
       {loading && (
         <div className="p-4 text-center text-sm text-muted-foreground">
           در حال جستجو...
@@ -30,13 +34,14 @@ export default function SearchResultList({
       {!loading &&
         products.slice(0, 9).map((product) => (
           <Link
-            href="#"
             key={product.id}
-            className="flex items-center gap-3 border-b px-4 py-3  transition-colors hover:bg-muted"
+            href={`/product/${product.id}`}
+            onClick={onSelect}
+            className="flex items-center gap-3 border-b px-4 py-3 transition-colors hover:bg-muted"
           >
             <MagnifyingGlassIcon className="h-4 w-4 shrink-0 text-muted-foreground" />
 
-            <div className="min-w-0 flex flex-col gap-1 ">
+            <div className="flex min-w-0 flex-col gap-1">
               <p className="text-[13px] text-muted-foreground">
                 {product.brand}
               </p>

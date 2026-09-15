@@ -4,6 +4,7 @@ import { getCategories } from "@/services/categories.service";
 import Header from "./Header";
 import BottomNavigation from "./mobileMenu/BottomNavigation";
 
+/* دیتای هدر را روی سرور می‌گیرد و به هدر و نوار پایین پاس می‌دهد */
 export default async function HeaderData() {
   let categories: Category[] = [];
   let categoriesError = false;

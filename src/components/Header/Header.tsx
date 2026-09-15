@@ -1,5 +1,6 @@
 import HeaderClient from "./HeaderClient";
 import HeaderBottom from "./HeaderBottom";
+import CollapsibleHeaderBottom from "./CollapsibleHeaderBottom";
 import { Category } from "@/types/categories";
 
 interface HeaderProps {
@@ -7,15 +8,19 @@ interface HeaderProps {
   categoriesError: boolean;
 }
 
-export default function Header({
-  categories,
-  categoriesError
-}: HeaderProps) {
+/* هدر ثابت سایت: ردیف بالا همیشه ثابت، ردیف پایین با اسکرول جمع می‌شود */
+export default function Header({ categories, categoriesError }: HeaderProps) {
   return (
     <header className="fixed top-0 left-0 right-0 z-[1000] bg-white/90 backdrop-blur-[8px] border-b border-border text-foreground">
       <div className="max-w-[1536px] mx-auto">
         <HeaderClient />
-        <HeaderBottom categories={categories} categoriesError={categoriesError}/>
+
+        <CollapsibleHeaderBottom>
+          <HeaderBottom
+            categories={categories}
+            categoriesError={categoriesError}
+          />
+        </CollapsibleHeaderBottom>
       </div>
     </header>
   );

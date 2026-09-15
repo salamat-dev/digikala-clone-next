@@ -15,6 +15,7 @@ interface MegaMenuClientProps {
   categories: Category[];
 }
 
+/* مگامنو: دسته‌ی فعال را با هاور نگه می‌دارد و پنل مربوطه را نشان می‌دهد */
 export default function MegaMenuClient({
   categories,
 }: MegaMenuClientProps) {

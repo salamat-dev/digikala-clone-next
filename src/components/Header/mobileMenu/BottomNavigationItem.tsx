@@ -36,6 +36,7 @@ interface BottomNavigationItemProps {
   item: (typeof navigationItems)[number];
 }
 
+/* یک آیتم نوار پایین؛ آیتم فعال بر اساس مسیر فعلی مشخص می‌شود */
 export default function BottomNavigationItem({
   item,
 }: BottomNavigationItemProps) {

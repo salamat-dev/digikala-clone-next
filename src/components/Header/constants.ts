@@ -1,3 +1,4 @@
+/* داده‌های ثابت هدر: لینک‌های ناوبری و آیتم‌های نوار پایین */
 import {
   HomeIcon,
   InformationCircleIcon,

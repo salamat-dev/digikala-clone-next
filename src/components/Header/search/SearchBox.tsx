@@ -7,6 +7,7 @@ interface SearchBoxProps {
     autoFocus?: boolean;
 }
 
+/* ورودی جستجو */
 export default function SearchBox({
     value,
     onChange,

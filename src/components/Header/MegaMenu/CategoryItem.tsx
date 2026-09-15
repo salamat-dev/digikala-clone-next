@@ -10,36 +10,36 @@ interface CategoryItemProps {
   onHover: (categories: Category) => void;
 }
 
-export default function CategoryItem({ category, activeCategory, onHover }: CategoryItemProps) {
+/* یک دسته‌ی اصلی در مگامنو؛ هاور پنل را عوض و کلیک به صفحه‌ی محصولات می‌برد */
+export default function CategoryItem({
+  category,
+  activeCategory,
+  onHover,
+}: CategoryItemProps) {
   const Icon =
-    categoryIcons[category.icon as keyof typeof categoryIcons] ?? defaultCategoryIcon;
+    categoryIcons[category.icon as keyof typeof categoryIcons] ??
+    defaultCategoryIcon;
 
-const href = getCategoryHref(
-  category.plp_url ?? category.url,
-  category.id,
-  category.children
-);
+  const href = getCategoryHref(
+    category.plp_url ?? category.url,
+    category.id,
+    category.children
+  );
 
   return (
     <li
       className={`flex items-center gap-3 px-4 ${
         activeCategory.id === category.id
-          ? "text-primary bg-white"
+          ? "bg-white text-primary"
           : "hover:bg-white hover:text-primary"
       } transition-colors`}
       onMouseEnter={() => onHover(category)}
     >
       <Icon size={24} stroke={1.6} />
 
-      {href ? (
-        <Link href={href} className="text-sm py-3 font-medium size-full">
-          {category.title}
-        </Link>
-      ) : (
-        <span className="text-sm py-3 font-medium size-full">
-          {category.title}
-        </span>
-      )}
+      <Link href={href} className="size-full py-3 text-sm font-medium">
+        {category.title}
+      </Link>
     </li>
   );
 }

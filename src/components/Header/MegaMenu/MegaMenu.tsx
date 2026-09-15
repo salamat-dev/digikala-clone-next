@@ -6,6 +6,7 @@ interface MegaMenuProps {
     categoriesError: boolean;
 }
 
+/* ورودی مگامنو: دیتا را به نسخه‌ی کلاینتی می‌دهد */
 export default function MegaMenu({
   categories,
   categoriesError

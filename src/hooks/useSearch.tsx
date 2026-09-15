@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { SearchProduct, SearchProducts } from "@/services/search.service";
 
+/* منطق جستجوی زنده: دیبانس ورودی، فراخوانی سرویس و نگهداری نتایج */
 export function useSearch(query: string) {
   const [products, setProducts] = useState<SearchProduct[]>([]);
   const [loading, setLoading] = useState(false);

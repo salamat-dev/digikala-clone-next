@@ -1,3 +1,4 @@
+/* تایپ‌های محصول و پاسخ اندپوینت /category */
 export interface Product {
   id: number;
   title_fa: string;
@@ -6,9 +7,9 @@ export interface Product {
   rating: { rate: number; count: number } | [];
   brand?: { title_fa: string };
   parameters?: { color_ids?: number[] } | [];
-  price: {
-    selling_price: number;
-    rrp_price: number;
+  price?: {
+    selling_price?: number;
+    rrp_price?: number;
     discount_percent?: number;
     badge?: { title: string; color: string };
   };

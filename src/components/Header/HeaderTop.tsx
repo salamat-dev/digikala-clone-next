@@ -16,6 +16,7 @@ interface HeaderTopProps {
   onDrawerOpen: () => void;
 }
 
+/* ردیف بالای هدر: لوگو، جستجو، سبد خرید و دکمه‌ی منو */
 export default function HeaderTop({ onDrawerOpen }: HeaderTopProps) {
   return (
     <div className="flex items-center justify-between h-15 md:h-20 px-4 md:px-6">

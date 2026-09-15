@@ -1,3 +1,4 @@
+/* نسخه‌ی قدیمی نوار مرتب‌سازی — نسخه‌ی فعال در components/products است */
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";

@@ -12,6 +12,7 @@ import {
 import SearchBox from "./SearchBox";
 import SearchResultList from "./SearchResultList";
 
+/* جستجوی دسکتاپ با پنل بازشونده */
 export default function DesktopSearch() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -44,6 +45,7 @@ export default function DesktopSearch() {
             loading={loading}
             query={query}
             products={products}
+            onSelect={() => setOpen(false)}
           />
         </PopoverContent>
       </Popover>

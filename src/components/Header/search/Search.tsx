@@ -2,6 +2,7 @@ import DesktopSearch from "./DesktopSearch";
 import MobileSearch from "./MobileSearch";
 
 
+/* انتخاب نسخه‌ی جستجو بر اساس اندازه‌ی صفحه */
 export default function Search() {
   return (
     <>

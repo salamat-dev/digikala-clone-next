@@ -1,17 +1,18 @@
-import type { Category, CategoryUrl, SubCategory } from "@/types/categories";
+import type { CategoryUrl } from "@/types/categories";
 
+/** فقط این دو نوع، صفحه‌ی دسته‌بندی واقعی هستند */
+const CATEGORY_PAGES = ["category_search_page", "category_main_page"];
+
+/** ریال → تومان */
+const toToman = (rial: number) => Math.round(rial / 10);
+
+/** حداقل شکلی که برای استخراج شناسه لازم داریم */
 interface CategoryNode {
   id: number;
   url?: CategoryUrl;
   children?: CategoryNode[];
 }
 
-const CATEGORY_PAGES = ["category_search_page", "category_main_page"];
-
-/** ریال → تومان */
-const toToman = (rial: number) => Math.round(rial / 10);
-
-/** شناسه‌ی دسته را از خود آیتم درمی‌آورد */
 function extractId(url?: CategoryUrl, fallbackId?: number): number | undefined {
   const categoryId = url?.params?.category_id;
 
@@ -23,11 +24,16 @@ function extractId(url?: CategoryUrl, fallbackId?: number): number | undefined {
 }
 
 /**
- * لینک داخلی صفحه‌ی محصولات.
+ * لینک داخلی صفحه‌ی محصولات را می‌سازد.
  *
- * بعضی دسته‌ها (طلا و نقره، تجهیزات پزشکی، ...) خودشان web_link هستند و
- * category_id ندارند. برای این‌ها شناسه را از اولین زیرشاخه‌ی معتبر برمی‌داریم
- * تا کاربر باز هم به یک صفحه‌ی مرتبط برسد.
+ * ترتیب تلاش برای پیدا کردن شناسه:
+ *   ۱. params.category_id خود آیتم
+ *   ۲. id خود آیتم، اگر page نوع دسته‌بندی باشد
+ *   ۳. اولین زیرشاخه‌ی معتبر (تا دو سطح عمق)
+ *   ۴. id خود آیتم به‌عنوان آخرین تلاش
+ *
+ * حالت ۴ ممکن است به صفحه‌ی «کالایی یافت نشد» برسد،
+ * ولی این بهتر از یک آیتم غیرقابل‌کلیک است.
  */
 export function getCategoryHref(
   url?: CategoryUrl,
@@ -36,13 +42,11 @@ export function getCategoryHref(
 ): string {
   let id = extractId(url, fallbackId);
 
-  // اگر خودش شناسه نداشت، سراغ فرزندها برو
   if (!id && children?.length) {
     for (const child of children) {
       id = extractId(child.url, child.id);
       if (id) break;
 
-      // یک سطح عمیق‌تر
       for (const grandChild of child.children ?? []) {
         id = extractId(grandChild.url, grandChild.id);
         if (id) break;
@@ -52,7 +56,9 @@ export function getCategoryHref(
     }
   }
 
-  if (!id) return "";
+  id = id ?? fallbackId;
+
+  if (!id) return "/";
 
   const params = new URLSearchParams();
 

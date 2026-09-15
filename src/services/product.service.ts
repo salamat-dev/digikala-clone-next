@@ -6,6 +6,7 @@ export interface ProductPageData {
   recommendation: Product[];
 }
 
+/* جزئیات کامل یک محصول به همراه محصولات پیشنهادی */
 export async function getProduct(id: string): Promise<ProductPageData | null> {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/product/?id=${id}`,

@@ -16,6 +16,7 @@ interface Props {
   alt: string;
 }
 
+/* گالری تصاویر محصول: اسلایدر اصلی + ردیف تصاویر کوچک */
 export default function ProductGallery({ images, alt }: Props) {
   const [api, setApi] = useState<CarouselApi>();
   const [active, setActive] = useState(0);
@@ -30,18 +31,23 @@ export default function ProductGallery({ images, alt }: Props) {
   }, [api]);
 
   return (
-    <div className="flex flex-col gap-3">
-      <Carousel setApi={setApi} opts={{ direction: "rtl", loop: true }}>
-        <CarouselContent>
+    <div className="flex w-full min-w-0 flex-col gap-3">
+      <Carousel
+        setApi={setApi}
+        opts={{ direction: "rtl", loop: true }}
+        className="w-full"
+      >
+        {/* حاشیه‌ی منفی پیش‌فرض shadcn در RTL باعث سرریز می‌شود */}
+        <CarouselContent className="ml-0 mr-0">
           {images.map((src, index) => (
-            <CarouselItem key={src}>
+            <CarouselItem key={src} className="pl-0 pr-0">
               <div className="relative aspect-square w-full overflow-hidden rounded-xl">
                 <Image
                   src={src}
                   alt={alt}
                   fill
                   priority={index === 0}
-                  sizes="(max-width: 102px) 90vw, 450px"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 300px, 450px"
                   className="object-contain"
                 />
               </div>
@@ -59,7 +65,7 @@ export default function ProductGallery({ images, alt }: Props) {
                 onClick={() => api?.scrollTo(index)}
                 aria-label={`تصویر ${index + 1}`}
                 className={cn(
-                  "relative block h-16 w-16 overflow-hidden rounded-lg border-2 bg-white transition-colors",
+                  "relative block h-12 w-12 overflow-hidden rounded-lg border-2 bg-white transition-colors lg:h-16 lg:w-16",
                   active === index
                     ? "border-primary"
                     : "border-border hover:border-neutral-400"
@@ -69,7 +75,7 @@ export default function ProductGallery({ images, alt }: Props) {
                   src={src}
                   alt=""
                   fill
-                  sizes="64px"
+                  sizes="48px"
                   className="object-contain p-1"
                 />
               </button>

@@ -1,3 +1,4 @@
+/* اسکلتون بارگذاری گرید محصولات */
 
 import { Skeleton } from "@/components/ui/skeleton";
 

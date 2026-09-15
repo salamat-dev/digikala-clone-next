@@ -10,6 +10,7 @@ interface SubCategoryAccordionProps {
     subCategories:SubCategory[];
 }
 
+/* آکاردئون زیرشاخه‌ها */
 export default function SubCategoryAccordion({ subCategories } : SubCategoryAccordionProps) {
   return (
     <Accordion type="multiple" className="w-full">

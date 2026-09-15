@@ -10,6 +10,7 @@ interface HeaderBottomProps {
     categories: Category[];
     categoriesError: boolean;
 }
+/* ردیف پایین هدر در دسکتاپ: مگامنو، لینک‌های ناوبری و تماس */
 export default function HeaderBottom({ categories, categoriesError } : HeaderBottomProps) {
   return (
     <div className="hidden lg:flex items-center justify-between min-h-12.5 px-8 border-t border-gray-100">

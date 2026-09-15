@@ -7,6 +7,7 @@ interface CategoryItemProps {
     active: boolean;
 }
 
+/* دکمه‌ی انتخاب دسته در ستون راست (لینک نیست، فقط محتوا را عوض می‌کند) */
 export default function CategoryItem({ category, onClick, active }: CategoryItemProps) {
     const Icon =
         categoryIcons[category.icon as keyof typeof categoryIcons] ??

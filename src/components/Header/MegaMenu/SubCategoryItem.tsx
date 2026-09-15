@@ -8,45 +8,31 @@ interface SubCategoryItemProps {
   item: SubCategory;
 }
 
+/* یک زیرشاخه به همراه فرزندانش در مگامنو */
 export default function SubCategoryItem({ item }: SubCategoryItemProps) {
-const href = getCategoryHref(item.url, item.id, item.children);
-
   return (
     <div className="space-y-4">
-      {href ? (
-        <Link
-          href={href}
-          className="flex size-full items-center gap-3 hover:text-secondary transition-colors text-[15px] font-bold"
-        >
-          <div className="w-[1.5px] h-5 bg-secondary rounded-full" />
-          {item.title}
-          <ChevronLeftIcon className="w-3 h-3" />
-        </Link>
-      ) : (
-        <div className="flex items-center gap-3 text-[15px] font-bold">
-          <div className="w-[1.5px] h-5 bg-secondary rounded-full" />
-          {item.title}
-        </div>
-      )}
+      <Link
+        href={getCategoryHref(item.url, item.id, item.children)}
+        className="flex size-full items-center gap-3 text-[15px] font-bold transition-colors hover:text-secondary"
+      >
+        <div className="h-5 w-[1.5px] rounded-full bg-secondary" />
 
-      <div className="mr-5 space-y-2 flex flex-col">
-        {item.children.map((child) => {
-          const childHref = getCategoryHref(child.url, child.id);
+        {item.title}
 
-          return childHref ? (
-            <Link
-              key={child.id}
-              href={childHref}
-              className="text-sm text-gray-500 hover:text-secondary"
-            >
-              {child.title}
-            </Link>
-          ) : (
-            <span key={child.id} className="text-sm text-gray-400">
-              {child.title}
-            </span>
-          );
-        })}
+        <ChevronLeftIcon className="h-3 w-3" />
+      </Link>
+
+      <div className="mr-5 flex flex-col space-y-2">
+        {item.children.map((child) => (
+          <Link
+            key={child.id}
+            href={getCategoryHref(child.url, child.id)}
+            className="text-sm text-gray-500 hover:text-secondary"
+          >
+            {child.title}
+          </Link>
+        ))}
       </div>
     </div>
   );

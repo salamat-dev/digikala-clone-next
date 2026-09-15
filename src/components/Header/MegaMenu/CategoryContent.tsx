@@ -10,6 +10,7 @@ interface CategoryContentProps {
   activeCategory: Category;
 }
 
+/* پنل مگامنو: زیرشاخه‌ها را بر اساس شماره‌ی ستون گروه‌بندی می‌کند */
 export default function CategoryContent({
   activeCategory,
 }: CategoryContentProps) {
@@ -23,29 +24,25 @@ export default function CategoryContent({
     return columns;
   }, {} as Record<number, SubCategory[]>);
 
-const allProductsHref = getCategoryHref(
-  activeCategory.plp_url ?? activeCategory.url,
-  activeCategory.id,
-  activeCategory.children
-);
-
-return (
-  <div className="px-4 py-6 overflow-y-auto">
-    {allProductsHref && (
+  return (
+    <div className="overflow-y-auto px-4 py-6">
       <Link
-        href={allProductsHref}
-        className="text-[13px] gap-3 flex items-center font-bold text-red-500"
+        href={getCategoryHref(
+          activeCategory.plp_url ?? activeCategory.url,
+          activeCategory.id,
+          activeCategory.children
+        )}
+        className="flex items-center gap-3 text-[13px] font-bold text-red-500"
       >
         همه محصولات {activeCategory.title}
         <ChevronLeftIcon className="h-3 w-3" />
       </Link>
-    )}
 
-    <div className="flex gap-7 mt-7">
-      {Object.entries(groupedColumns).map(([columnNumber, items]) => (
-        <CategoryColumn key={columnNumber} items={items} />
-      ))}
+      <div className="mt-7 flex gap-7">
+        {Object.entries(groupedColumns).map(([columnNumber, items]) => (
+          <CategoryColumn key={columnNumber} items={items} />
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
 }

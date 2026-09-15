@@ -51,6 +51,7 @@ interface SearchApiResponse {
   };
 }
 
+/* جستجوی محصولات از طریق روت داخلی /api/search */
 export async function SearchProducts(
   query: string,
   page = 1

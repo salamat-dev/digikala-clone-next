@@ -27,42 +27,43 @@ const SLIDE_DATA: SlideItem[] = [
     title: "بهترین گوشی‌های هوشمند",
     subtitle: "برای مشاهده و خرید کلیک کنید",
     img: "/images/firstSlider/mobile.png",
-    link: "/products/smartphones",
+    link: "/products/11",
     posTop: "40%",
-    posRight: "25px",
+    posRight: "60px",
   },
   {
     id: 2,
     title: "جواهرات لوکس برای شما",
     subtitle: "برای مشاهده و خرید کلیک کنید",
     img: "/images/firstSlider/jewelery.png",
-    link: "/products/jewelery",
+    link: "/products/9227",
     posTop: "40%",
-    posRight: "25px",
+    posRight: "120px",
   },
   {
     id: 3,
     title: "پوشاک مردانه",
     subtitle: "برای مشاهده و خرید کلیک کنید",
     img: "/images/firstSlider/men-clothing.png",
-    link: "/products/men",
+    link: "/products/8752",
     posTop: "20%",
-    posRight: "25px",
+    posRight: "80px",
   },
   {
     id: 4,
     title: "با بهترین کفش‌ها قدم بردار",
     subtitle: "برای مشاهده و خرید کلیک کنید",
     img: "/images/firstSlider/shose.png",
-    link: "/products/shoes",
-    posTop: "10%",
-    posRight: "25%",
+    link: "/products/9476",
+    posTop: "5%",
+    posRight: "35%",
   },
 ];
 
+/* اسلایدر بنرهای صفحه‌ی اصلی */
 export default function FirstSlider() {
   return (
-    <section className="w-full rounded-[8px] overflow-hidden h-[25dvh] sm:h-[35dvh] md:h-[55`dvh] lg:h-[70dvh] mt-8 lg:mt-5">
+    <section className="w-full rounded-[8px] overflow-hidden h-[30dvh] sm:h-[40dvh] md:h-[50dvh] lg:h-[70dvh] mt-8 lg:mt-0">
       <Swiper
         modules={[Navigation, Pagination, EffectFade, Autoplay]}
         effect="fade"
@@ -89,10 +90,10 @@ export default function FirstSlider() {
                     textShadow: "0 2px 8px rgba(0,0,0,0.8)",
                   }}
                 >
-                  <h3 className="font-bold leading-tight text-[14px] sm:text-[25px] md:text-[40px] xl:text-[50px]">
+                  <h3 className="font-bold leading-tight text-[14px] sm:text-[25px] md:text-[30px] xl:text-[35px]">
                     {slide.title}
                   </h3>
-                  <p className="text-[10px] sm:text-[17px] md:text-[28px] xl:text-[30px]">
+                  <p className="text-[10px] sm:text-[17px] md:text-[20px] xl:text-[25px]">
                     {slide.subtitle}
                   </p>
                 </div>

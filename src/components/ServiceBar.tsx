@@ -14,10 +14,11 @@ const SERVICES = [
   { Icon: IconRosetteDiscountCheck, label: "ضمانت اصل بودن کالا" },
 ];
 
+/* نوار خدمات فروشگاه زیر اطلاعات محصول */
 export default function ServiceBar() {
   return (
     <>
-    <ul className="flex flex-wrap items-center justify-evenly gap-x-10 gap-y-5 py-8 text-neutral-400 w-full mt-15">
+    <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 items-center justify-evenly gap-x-10 gap-y-5 py-8 text-neutral-400 w-full ">
       {SERVICES.map(({ Icon, label }) => (
         <li key={label} className="flex items-center gap-2">
           <Icon size={32} stroke={1.2} />

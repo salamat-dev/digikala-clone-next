@@ -1,11 +1,15 @@
-import type { CategoryData, CategoryResponse, Product } from "@/types/product";
+import type { CategoryData, CategoryResponse } from "@/types/product";
 
+/** سکشن‌هایی که آرایه‌ی محصول دارند */
 const PRODUCT_SECTIONS = [
   "super_deal_products",
   "horizontal_products",
   "vertical_products",
 ];
 
+const EMPTY: CategoryData = { products: [], brandNames: {} };
+
+/* محصولات یک دسته را از سکشن‌های پاسخ بیرون می‌کشد و تکراری‌ها را حذف می‌کند */
 export async function getCategoryProducts(id: string): Promise<CategoryData> {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/category/?id=${id}`,
@@ -15,15 +19,16 @@ export async function getCategoryProducts(id: string): Promise<CategoryData> {
     }
   );
 
+  // دسته وجود ندارد — خطا نیست، فقط خالی است
+  if (res.status === 404) return EMPTY;
+
   if (!res.ok) {
     throw new Error(`Category ${id} request failed with ${res.status}`);
   }
 
   const data: CategoryResponse = await res.json();
 
-  if (!Array.isArray(data?.result)) {
-    return { products: [], brandNames: {} };
-  }
+  if (!Array.isArray(data?.result)) return EMPTY;
 
   /* محصولات */
   const rawProducts = data.result

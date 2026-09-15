@@ -20,6 +20,7 @@ interface Props {
   onlyFastShipping: boolean;
 }
 
+/* سایدبار فیلتر: هر تغییر را در URL می‌نویسد تا صفحه سمت سرور فیلتر شود */
 export default function FilterSidebar({
   brands,
   selectedBrands,
@@ -35,6 +36,7 @@ export default function FilterSidebar({
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
+  // مقدار موقت اسلایدر حین کشیدن
   const [price, setPrice] = useState([currentMin, currentMax]);
 
   function push(params: URLSearchParams) {
@@ -44,14 +46,14 @@ export default function FilterSidebar({
   function toggleBrand(brand: string, checked: boolean) {
     const params = new URLSearchParams(searchParams.toString());
 
-    const current = params.getAll("brand");
+    const currentBrands = params.getAll("brand");
     params.delete("brand");
 
-    const next = checked
-      ? [...current, brand]
-      : current.filter((item) => item !== brand);
+    const updatedBrands = checked
+      ? [...currentBrands, brand]
+      : currentBrands.filter((item) => item !== brand);
 
-    next.forEach((item) => params.append("brand", item));
+    updatedBrands.forEach((item) => params.append("brand", item));
 
     push(params);
   }
@@ -81,7 +83,7 @@ export default function FilterSidebar({
   const hasFilters = searchParams.toString().length > 0;
 
   return (
-    <div className="space-y-6 pl-1 sticky top-35">
+    <div className="space-y-6 pl-1">
       {/* برند */}
       <div className="space-y-3">
         <h3 className="text-[13px] font-bold">برند</h3>
@@ -92,10 +94,15 @@ export default function FilterSidebar({
               <Checkbox
                 id={`brand-${brand}`}
                 checked={selectedBrands.includes(brand)}
-                onCheckedChange={(checked) => toggleBrand(brand, checked === true)}
+                onCheckedChange={(checked) =>
+                  toggleBrand(brand, checked === true)
+                }
               />
 
-              <Label htmlFor={`brand-${brand}`} className="text-[13px] font-normal">
+              <Label
+                htmlFor={`brand-${brand}`}
+                className="text-[13px] font-normal"
+              >
                 {brand}
               </Label>
             </div>
@@ -158,10 +165,12 @@ export default function FilterSidebar({
           />
         </div>
       </div>
+
       {hasFilters && (
         <button
+          type="button"
           onClick={clearAll}
-          className="text-[12px] text-red-500 hover:underline"
+          className="cursor-pointer text-[12px] text-red-500 hover:underline"
         >
           حذف فیلترها
         </button>

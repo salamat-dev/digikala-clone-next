@@ -1,3 +1,4 @@
+/* اسکلتون ستون دسته‌ها و محتوای آن */
 import { Skeleton } from "@/components/ui/skeleton";
 
 const SIDEBAR_ITEMS = 10;

@@ -21,6 +21,7 @@ interface NavDrawerProps {
   onOpenChange: (open: boolean) => void;
 }
 
+/* کشوی ناوبری موبایل */
 export default function NavDrawer({ open, onOpenChange }: NavDrawerProps) {
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>

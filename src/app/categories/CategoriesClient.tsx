@@ -11,6 +11,7 @@ interface CategoriesProp {
   categories: Category[];
 }
 
+/* صفحه‌ی دسته‌بندی موبایل: ستون دسته‌ها + محتوای دسته‌ی انتخاب‌شده */
 export default function CategoriesClient({
   categories,
 }: CategoriesProp) {

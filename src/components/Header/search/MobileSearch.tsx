@@ -15,6 +15,7 @@ import {
 import SearchBox from "./SearchBox";
 import SearchResultList from "./SearchResultList";
 
+/* جستجوی موبایل به صورت تمام‌صفحه */
 export default function MobileSearch() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -54,7 +55,7 @@ export default function MobileSearch() {
 
           </div>
 
-          <SearchResultList loading={loading} query={query} products={products} />
+          <SearchResultList onSelect={() => {setOpen(false); setQuery('')}} loading={loading} query={query} products={products} />
 
         </div>
       </DialogContent>
