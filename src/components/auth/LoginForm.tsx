@@ -6,9 +6,15 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner";
+
 import FormAlert from "./FormAlert";
+import FieldWrapper from "./FieldWrapper";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
+
 import {
   Form,
   FormControl,
@@ -17,11 +23,9 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+
 import { login } from "@/services/auth.service";
 import { useAuth } from "@/store/auth.store";
-import FieldWrapper from "./FieldWrapper";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
 
 const schema = z.object({
   email: z.string().email("ایمیل معتبر نیست"),
@@ -40,6 +44,7 @@ export default function LoginForm({ onSwitch, direction }: Props) {
   const setUser = useAuth((state) => state.setUser);
 
   const [loading, setLoading] = useState(false);
+
   const [alert, setAlert] = useState<{
     type: "success" | "error";
     message: string;
@@ -49,7 +54,10 @@ export default function LoginForm({ onSwitch, direction }: Props) {
     resolver: zodResolver(schema),
     mode: "onTouched",
     reValidateMode: "onChange",
-    defaultValues: { email: "", pass: "" },
+    defaultValues: {
+      email: "",
+      pass: "",
+    },
   });
 
   async function onSubmit(values: FormValues) {
@@ -60,28 +68,43 @@ export default function LoginForm({ onSwitch, direction }: Props) {
       const user = await login(values.email, values.pass);
 
       setUser(user);
-      setAlert({ type: "success", message: `خوش آمدید ${user.fname}` });
+
+      setAlert({
+        type: "success",
+        message: `خوش آمدید ${user.fname}`,
+      });
+
       toast.success(`خوش آمدید ${user.fname}`);
 
-      // کمی مکث تا کاربر پیام را ببیند
       setTimeout(() => router.push("/"), 900);
     } catch (error) {
       const message = (error as Error).message;
 
-      setAlert({ type: "error", message });
+      setAlert({
+        type: "error",
+        message,
+      });
+
       toast.error(message);
     } finally {
       setLoading(false);
     }
   }
 
-  /* پر کردن خودکار فرم با حساب آزمایشی */
   function fillDemo(checked: boolean) {
     if (checked) {
-      form.setValue("email", "admin@gmail.com", { shouldValidate: true });
-      form.setValue("pass", "admin", { shouldValidate: true });
+      form.setValue("email", "admin@gmail.com", {
+        shouldValidate: true,
+      });
+
+      form.setValue("pass", "admin", {
+        shouldValidate: true,
+      });
     } else {
-      form.reset({ email: "", pass: "" });
+      form.reset({
+        email: "",
+        pass: "",
+      });
     }
 
     setAlert(null);
@@ -91,11 +114,18 @@ export default function LoginForm({ onSwitch, direction }: Props) {
     <div className="space-y-6">
       {alert && (
         <FieldWrapper index={1} direction={direction}>
-          <FormAlert type={alert.type} message={alert.message} />
+          <FormAlert
+            type={alert.type}
+            message={alert.message}
+          />
         </FieldWrapper>
       )}
+
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="space-y-4"
+        >
           <FieldWrapper index={1} direction={direction}>
             <FormField
               control={form.control}
@@ -103,6 +133,7 @@ export default function LoginForm({ onSwitch, direction }: Props) {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>ایمیل</FormLabel>
+
                   <FormControl>
                     <Input
                       dir="ltr"
@@ -111,6 +142,7 @@ export default function LoginForm({ onSwitch, direction }: Props) {
                       {...field}
                     />
                   </FormControl>
+
                   <FormMessage />
                 </FormItem>
               )}
@@ -124,6 +156,7 @@ export default function LoginForm({ onSwitch, direction }: Props) {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>رمز عبور</FormLabel>
+
                   <FormControl>
                     <Input
                       dir="ltr"
@@ -132,6 +165,7 @@ export default function LoginForm({ onSwitch, direction }: Props) {
                       {...field}
                     />
                   </FormControl>
+
                   <FormMessage />
                 </FormItem>
               )}
@@ -146,10 +180,19 @@ export default function LoginForm({ onSwitch, direction }: Props) {
             >
               {loading ? "در حال ورود..." : "ورود"}
             </Button>
-            <div className="flex items-center gap-2 p-3">
-              <Checkbox id="demo" onCheckedChange={(v) => fillDemo(v === true)} />
 
-              <Label htmlFor="demo" className="cursor-pointer text-[12px] font-normal">
+            <div className="flex items-center gap-2 p-3">
+              <Checkbox
+                id="demo"
+                onCheckedChange={(v) =>
+                  fillDemo(v === true)
+                }
+              />
+
+              <Label
+                htmlFor="demo"
+                className="cursor-pointer text-[12px] font-normal"
+              >
                 ورود با حساب آزمایشی
               </Label>
             </div>

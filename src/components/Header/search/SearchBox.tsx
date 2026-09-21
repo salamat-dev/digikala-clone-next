@@ -31,7 +31,7 @@ export default function SearchBox({
             {!value && (
                 <strong className="pointer-events-none absolute opacity-60 right-10 top-1/2 -translate-y-1/2 text-sm text-primary">
                     تهمتن<span> </span>
-                    <strong className="text-secondary">
+                    <strong className="text-secondary/80">
                         شاپ
                     </strong>
                 </strong>

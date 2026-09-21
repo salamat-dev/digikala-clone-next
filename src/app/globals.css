@@ -15,7 +15,7 @@
   font-display: swap;
 }
 
-body{
+body {
   background-color: rgb(252, 252, 252);
 }
 
@@ -90,8 +90,8 @@ body{
   --primary: #1a237e;
   --primary-foreground: #ffffff;
 
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+  --secondary: #00b0ff;
+  --secondary-foreground: #ffffff;
 
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);

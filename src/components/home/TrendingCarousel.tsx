@@ -28,8 +28,8 @@ interface Props {
 export default function TrendingCarousel({ 
   title,
   products,
-  className = "bg-primary/85",
-  dividerClassName = "border-primary/85",
+  className = "bg-primary",
+  dividerClassName = "border-primary",
   icon = "fire",
 }: Props) {
   if (products.length === 0) return null;
@@ -38,7 +38,7 @@ export default function TrendingCarousel({
 
   return (
     <section className="py-4">
-      <div className={`lg:flex lg:gap-3 lg:rounded-2xl py-5 md:py-6 pr-3 ${className}`}>
+      <div className={`lg:flex lg:gap-3 lg:rounded-2xl py-5 md:py-6 pr-3 ${className} ${dividerClassName}`}>
         {/* پنل ثابت سمت راست */}
         <div className="flex lg:shrink-0 lg:flex-col items-center justify-between lg:justify-center lg:gap-3 text-white lg:w-36">
 
