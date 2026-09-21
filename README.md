@@ -104,7 +104,7 @@ Built by **AmirMahdi** · [GitHub](https://github.com/salamat-dev)
 
 راست‌چین · رابط فارسی · داده‌ی واقعی محصولات
 
-[![دموی زنده](https://img.shields.io/badge/دموی_زنده-000?style=for-the-badge&logo=vercel&logoColor=white)](https://digikala-clone-next.vercel.app/)
+[![live demo](https://img.shields.io/badge/دموی_زنده-000?style=for-the-badge&logo=vercel&logoColor=white)](https://digikala-clone-next.vercel.app/)
 [![English](https://img.shields.io/badge/README-English-00B0FF?style=for-the-badge)](./README.md)
 
 </div>
