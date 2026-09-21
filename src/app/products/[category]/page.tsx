@@ -144,7 +144,6 @@ export default async function CategoryProductsPage({
 
   return (
     <article className="px-4 py-4">
-      <BackButton className="mb-3" />
 
       {/* چیدمان: سایدبار فیلتر + گرید محصولات */}
       <div className="flex gap-4">
@@ -155,6 +154,7 @@ export default async function CategoryProductsPage({
         </aside>
 
         <section className="min-w-0 flex-1">
+          <BackButton className="mb-5" />
           <SortBar current={sort} />
 
           <div className="my-3 flex items-center justify-between">

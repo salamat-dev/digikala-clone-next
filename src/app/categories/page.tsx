@@ -1,5 +1,3 @@
-import { redirect } from "next/navigation";
-import { headers } from "next/headers";
 
 import { getCategories } from "@/services/categories.service";
 import CategoriesClient from "./CategoriesClient";
@@ -32,9 +30,9 @@ export default async function CategoriesPage() {
       <RedirectOnDesktop />
 
       <div className="lg:hidden">
-        <BackButton className="px-4 py-2" />
+        {/* <BackButton className="px-4 py-2" /> */}
 
-        <div className="h-[calc(100dvh-164px)] overflow-hidden md:h-[calc(100dvh-184px)]">
+        <div className="h-[calc(100dvh-164px)] overflow-hidden md:h-[calc(100dvh-114px)] mt-3 md:mt-8">
           <CategoriesClient categories={categories} />
         </div>
       </div>

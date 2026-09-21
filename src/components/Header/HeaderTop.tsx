@@ -74,7 +74,7 @@ export default function HeaderTop({ onDrawerOpen }: HeaderTopProps) {
         >
           <Link
             href={isLoggedIn ? "/profile" : "/auth"}
-            className="flex items-center gap-1.5 size-full justify-center items-center"
+            className="flex items-center gap-1.5 size-full justify-center"
           >
             <UserCircleIcon className="min-h-5 min-w-5" />
             {isLoggedIn ? user.fname : "ورود | ثبت‌نام"}

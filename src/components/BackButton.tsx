@@ -19,7 +19,7 @@ export default function BackButton({
       type="button"
       onClick={() => router.back()}
       className={cn(
-        "flex cursor-pointer items-center gap-1 text-[13px] text-muted-foreground transition-colors hover:text-primary",
+        "flex cursor-pointer items-center gap-1 text-[13px] mt-4 md:mt-8 lg:mt-0 py-2 transition-colors hover:text-primary",
         className
       )}
     >

@@ -16,7 +16,7 @@
 }
 
 body{
-  background-color: rgb(249, 249, 249);
+  background-color: rgb(252, 252, 252);
 }
 
 @custom-variant dark (&:is(.dark *));
