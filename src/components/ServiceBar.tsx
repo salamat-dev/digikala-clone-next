@@ -18,7 +18,7 @@ const SERVICES = [
 export default function ServiceBar() {
   return (
     <>
-    <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 items-center justify-evenly gap-x-10 gap-y-5 py-8 text-neutral-400 w-full ">
+    <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 items-center justify-evenly gap-x-10 gap-y-5 md:py-10 md:mb-2 text-neutral-400 w-full ">
       {SERVICES.map(({ Icon, label }) => (
         <li key={label} className="flex items-center gap-2">
           <Icon size={32} stroke={1.2} />

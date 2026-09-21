@@ -13,7 +13,7 @@ export default function CategoryCircles({
   if (categories.length === 0) return null;
 
   return (
-    <section className="w-full pb-3 mt-3 lg:px-5 px-0">
+    <section className="w-full pb-3 py-3 xl:py-0 mt-3 lg:px-5 px-0">
       <ul className="mx-auto flex overflow-x-auto lg:overflow-hidden hide-scrollbar lg:grid w-full grid-cols-6 justify-items-center gap-x-4 lg:gap-x-15 gap-y-5 lg:grid-cols-10">
         {categories.map((category) => {
           const Icon =
@@ -30,11 +30,11 @@ export default function CategoryCircles({
                 )}
                 className="flex w-full flex-col items-center gap-2 text-center"
               >
-                <span className="flex h-14 w-14 items-center justify-center rounded-full border bg-muted/40 text-primary md:h-18 md:w-18 lg:h-15 lg:w-15">
-                  <Icon size={30} stroke={1.5} />
+                <span className="flex h-15 w-15 items-center justify-center rounded-full border bg-muted/40 text-primary md:h-17 md:w-17 lg:h-15 lg:w-15">
+                  <Icon size={28} stroke={1.5} />
                 </span>
 
-                <span className="line-clamp-2 text-[12px] leading-4">
+                <span className="line-clamp-2 text-[10px] leading-4">
                   {category.title}
                 </span>
               </Link>

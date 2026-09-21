@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { formatPrice } from "@/lib/format";
 import type { ProductDetail } from "@/types/product-detail";
+import AddToCart from "./AddToCart";
 
 /* باکس خرید دسکتاپ: فروشنده، گارانتی، قیمت و دکمه‌ی خرید */
 export default function BuyBox({ product }: { product: ProductDetail }) {
@@ -59,9 +60,8 @@ export default function BuyBox({ product }: { product: ProductDetail }) {
           </p>
         </div>
 
-        <Button className="w-full cursor-pointer bg-primary py-6 text-sm font-bold hover:bg-primary/90">
-          افزودن به سبد خرید
-        </Button>
+        <AddToCart product={product} className={"w-full cursor-pointer bg-primary py-6 text-sm font-bold hover:bg-primary/90"}/>
+
       </CardContent>
     </Card>
   );

@@ -67,7 +67,7 @@ export default function TrendingCarousel({
             {products.map((product) => (
               <CarouselItem
                 key={product.id}
-                className={`basis-1/4 border-r-2 lg:border-r-3 px-0 sm:basis-1/4 lg:basis-1/5 xl:basis-1/7 ${dividerClassName}`}
+                className={`basis-1/3 border-r-2 lg:border-r-3 px-0 sm:basis-1/4 lg:basis-1/5 xl:basis-1/7 ${dividerClassName}`}
               >
                 <DealCard product={product} />
               </CarouselItem>

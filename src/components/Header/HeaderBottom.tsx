@@ -21,8 +21,8 @@ export default function HeaderBottom({ categories, categoriesError } : HeaderBot
         {NAV.map((n) => {
           const Icon = n.i;
           return (
-            <Button key={n.t} variant="ghost" size="sm" asChild className="text-muted-foreground font-semibold hover:text-[#1A237E]">
-              <Link href={n.h}>
+            <Button key={n.t} variant="ghost" size="sm" className="text-muted-foreground font-semibold hover:text-[#1A237E]">
+              <Link href={n.h} className="flex items-center gap-1.5">
                 <Icon className="w-4 h-4" />
                 {n.t}
               </Link>

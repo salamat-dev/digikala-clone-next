@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 
 const POSTERS = [
-    { positions:"bottom-10 left-40 sm:left-55 md:left-73", href: "/products/10639", src: "/images/posters/kitchen.jpg", alt: "ابزارآلات آشپزی" },
+    { positions:"bottom-10 left-30 sm:left-55 md:left-73", href: "/products/10639", src: "/images/posters/kitchen.jpg", alt: "ابزارآلات آشپزی" },
     { positions:"top-10 right-10", href: "/products/6741", src: "/images/posters/baby.jpg", alt: "کودک و نوزاد" },
 ];
 
@@ -15,7 +15,7 @@ export default function ProductGrid2() {
                     <li key={poster.href} className="group">
                         <Link
                             href={poster.href}
-                            className="relative block h-50 md:h-63 w-full overflow-hidden rounded-xl bg-muted"
+                            className="relative block h-30 sm:h-50 md:h-45 lg:h-60 w-full overflow-hidden rounded-xl bg-muted"
                         >
                             {poster.src ? (
                                 <figure className="relative size-full">
@@ -33,7 +33,7 @@ export default function ProductGrid2() {
                                     {/* متن وسط پوستر */}
                                     <figcaption
                                         style={{textShadow: "0 2px 8px rgba(0,0,0,0.8)",}}
-                                        className={`absolute ${poster.positions} bottom-0 left-0 z-10 w-full text-center text-lg sm:text-2xl font-bold text-white opacity-100 duration-700 md:py-2 md:text-[25px] md:font-bold lg:top-1/2 lg:right-auto lg:bottom-auto lg:left-1/2 lg:w-[60%] lg:-translate-1/2 lg:opacity-0 lg:group-hover:opacity-100 xl:w-[80%] xl:text-xl`}
+                                        className={`absolute ${poster.positions} bottom-0 left-0 z-10 w-full text-center text-xs sm:text-2xl font-bold text-white opacity-100 duration-700 md:py-2 md:text-[25px] md:font-bold lg:top-1/2 lg:right-auto lg:bottom-auto lg:left-1/2 lg:w-[60%] lg:-translate-1/2 lg:opacity-0 lg:group-hover:opacity-100 xl:w-[80%] xl:text-xl`}
                                     >
                                         {poster.alt}
                                     </figcaption>

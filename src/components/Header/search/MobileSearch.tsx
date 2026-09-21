@@ -29,7 +29,7 @@ export default function MobileSearch() {
           size="lg"
           className="rounded-full text-primary"
         >
-          <MagnifyingGlassIcon className="min-w-5 min-h-5" />
+          <MagnifyingGlassIcon className="min-w-4 min-h-4" />
         </Button>
       </DialogTrigger>
 

@@ -71,7 +71,7 @@ if (categoriesResult.status === "fulfilled") categories = categoriesResult.value
 
         <ProductGrid2/>
 
-        {rows.slice(2, 4).map((section) => (
+        {rows.slice(4, 6).map((section) => (
           <ProductRow
             key={section.code}
             title={section.title}

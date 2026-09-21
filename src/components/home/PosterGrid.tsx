@@ -4,16 +4,16 @@ import Link from "next/link";
 /* پوسترهای دسته‌بندی — عکس و لینک دستی تعریف می‌شوند */
 const POSTERS = [
   {
-    positions: "bottom-0 w-full",
+    positions: "-bottom-3 w-full",
     objects: "object-cover",
     href: "/products/13",
     src: "/images/posters/tablet.webp",
     alt: "تبلت",
     desc: "هوشمند در ابعاد بزرگتر",
-    text: "text-black/50 lg:text-white",
+    text: "text-black/70 lg:text-white",
   },
   {
-    positions: "top-7 left-28 sm:left-37 md:left-25",
+    positions: "top-4 sm:top-7 left-21 sm:left-37 md:left-22",
     objects: "object-cover object-[0%_0%]",
     href: "/products/9477",
     src: "/images/posters/boots.webp",
@@ -22,7 +22,7 @@ const POSTERS = [
     text: "text-white",
   },
   {
-    positions: "top-10 right-27 sm:right-35 md:right-20",
+    positions: "top-5 right-22 sm:right-35 md:right-20",
     objects: "object-cover object-[100%_0%]",
     href: "/products/8",
     src: "/images/posters/book.webp",
@@ -31,7 +31,7 @@ const POSTERS = [
     text: "text-white",
   },
   {
-    positions: "top-2 sm:top-5 md:top-10 left-5 md:right-25",
+    positions: "top-4 sm:top-5 md:top-10 left-0 md:right-25",
     objects: "object-cover object-[100%_0%]",
     href: "/products/8450",
     src: "/images/posters/tools.webp",
@@ -44,12 +44,12 @@ const POSTERS = [
 export default function PosterGrid() {
   return (
     <section className="px-3 py-3 lg:px-0">
-      <ul className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-4">
+      <ul className="grid grid-cols-2 gap-2 lg:grid-cols-4 lg:gap-4">
         {POSTERS.map((poster) => (
           <li key={poster.href} className="group">
             <Link
               href={poster.href}
-              className="relative block h-45 w-full overflow-hidden rounded-xl bg-muted sm:h-50 md:h-63"
+              className="relative block h-30 w-full overflow-hidden rounded-xl bg-muted sm:h-50 md:h-45 lg:h-60"
             >
               {poster.src ? (
                 <figure className="relative size-full">
@@ -67,7 +67,7 @@ export default function PosterGrid() {
                   {/* متن وسط پوستر */}
                   <figcaption
 
-                    className={`${poster.text} absolute ${poster.positions} z-10 w-1/2 text-center text-sm opacity-100 duration-700 md:w-full md:py-2 md:text-[18px] font-bold lg:top-1/2 lg:right-auto lg:bottom-auto lg:left-1/2 lg:w-[60%] lg:-translate-1/2 lg:opacity-0 lg:group-hover:opacity-100 xl:w-[80%] xl:text-xl`}
+                    className={`${poster.text} absolute ${poster.positions} z-10 w-1/2 text-center text-[10px] opacity-100 duration-700 md:w-full md:py-2 md:text-[18px] md:font-bold lg:top-1/2 lg:right-auto lg:bottom-auto lg:left-1/2 lg:w-[60%] lg:-translate-1/2 lg:opacity-0 lg:group-hover:opacity-100 xl:w-[80%] xl:text-xl`}
                   >
                     {poster.desc}
                   </figcaption>
