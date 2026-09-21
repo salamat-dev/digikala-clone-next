@@ -21,7 +21,7 @@ export interface ProductVariant {
   digiplus?: { is_jet_eligible?: boolean };
 }
 
-export interface ProductDetail extends Product {
+export interface ProductDetail extends Omit<Product, "images"> {
   category_title?: string;
 
   images: {

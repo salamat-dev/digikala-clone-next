@@ -18,9 +18,9 @@ export interface NavItem {
 
 export const NAV: NavItem[] = [
   { t: "خانه",      i: HomeIcon,              h: "/"        },
-  { t: "درباره ما", i: InformationCircleIcon, h: "/about"   },
-  { t: "مقالات",    i: DocumentTextIcon,      h: "/blog"    },
-  { t: "تماس با ما",i: PhoneIcon,             h: "/contact" },
+  { t: "درباره ما", i: InformationCircleIcon, h: "https://trainingsitedesign.ir/about/"   },
+  { t: "مقالات",    i: DocumentTextIcon,      h: "https://trainingsitedesign.ir/blog/"    },
+  { t: "تماس با ما",i: PhoneIcon,             h: "https://trainingsitedesign.ir/contact/" },
 ];
 
 export const navigationItems = [

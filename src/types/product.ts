@@ -19,6 +19,10 @@ export interface Product {
   };
 }
 
+/**
+ * پاسخ /category یک آرایه از «سکشن» است.
+ * سکشن‌های محصول در data.products و سکشن برندها در data.brands هستند.
+ */
 export interface CategorySection {
   type: string;
   data?: {
@@ -37,19 +41,4 @@ export interface CategoryResponse {
 export interface CategoryData {
   products: Product[];
   brandNames: Record<number, string>;
-}
-
-/**
- * پاسخ /category یک آرایه از «سکشن» است.
- * سکشن‌ها بین دسته‌بندی‌ها فرق می‌کنند، ولی هر کدام که محصول داشته باشد
- * محصولاتش در data.products است.
- */
-export interface CategorySection {
-  type: string;
-  data?: { title?: string; products?: Product[] };
-}
-
-export interface CategoryResponse {
-  status: number;
-  result: CategorySection[];
 }

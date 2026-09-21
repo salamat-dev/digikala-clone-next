@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { BuildingStorefrontIcon } from "@heroicons/react/24/outline";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
   Sheet,
@@ -30,14 +29,16 @@ export default function NavDrawer({ open, onOpenChange }: NavDrawerProps) {
 
         <SheetHeader className="p-0 mb-4">
           <SheetTitle asChild>
-            <Button variant="ghost" size="sm" asChild className="justify-start px-0 hover:bg-transparent">
-              <Link href="/" onClick={() => onOpenChange(false)}>
-                <BuildingStorefrontIcon className="w-6 h-6 text-[#1A237E]" />
-                <span className="font-poppins font-black text-[15px] text-[#1A237E]">
-                  YOUR<span className="text-[#00B0FF]">SHOP</span>
-                </span>
-              </Link>
-            </Button>
+            <Link
+              href="/"
+              onClick={() => onOpenChange(false)}
+              className="flex h-8 items-center justify-start gap-1.5 px-0"
+            >
+              <BuildingStorefrontIcon className="w-6 h-6 text-[#1A237E]" />
+              <span className="font-poppins font-black text-[15px] text-[#1A237E]">
+                YOUR<span className="text-[#00B0FF]">SHOP</span>
+              </span>
+            </Link>
           </SheetTitle>
         </SheetHeader>
 
@@ -48,12 +49,13 @@ export default function NavDrawer({ open, onOpenChange }: NavDrawerProps) {
             const Icon = n.i;
             return (
               <SheetClose key={n.t} asChild>
-                <Button variant="ghost" size="sm" asChild className="justify-start font-bold text-foreground hover:text-[#1A237E]">
-                  <Link href={n.h}>
-                    <Icon className="w-4 h-4 text-[#1A237E] shrink-0" />
-                    {n.t}
-                  </Link>
-                </Button>
+                <Link
+                  href={n.h}
+                  className="flex h-8 items-center justify-start gap-1.5 rounded-md px-2.5 text-sm font-bold text-foreground transition-colors hover:bg-muted hover:text-[#1A237E]"
+                >
+                  <Icon className="w-4 h-4 text-[#1A237E] shrink-0" />
+                  {n.t}
+                </Link>
               </SheetClose>
             );
           })}

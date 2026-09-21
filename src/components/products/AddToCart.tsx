@@ -4,10 +4,17 @@ import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/store/cart.store";
-import type { Product } from "@/types/product";
+
+/* فقط فیلدهایی که برای سبد لازم است — هم Product و هم ProductDetail با آن می‌خوانند */
+interface CartProduct {
+  id: number;
+  title_fa: string;
+  images?: { main?: string };
+  price?: { selling_price?: number };
+}
 
 interface Props {
-  product: Product;
+  product: CartProduct;
   className?: string;
 }
 
@@ -27,10 +34,10 @@ export default function AddToCart({ product, className }: Props) {
 
     toast.success("به سبد خرید اضافه شد", {
       description: product.title_fa,
-      // action: {
-      //   label: "مشاهده سبد",
-      //   onClick: () => (window.location.href = "/cart"),
-      // },
+      action: {
+        label: "مشاهده سبد",
+        onClick: () => (window.location.href = "/cart"),
+      },
     });
   }
 

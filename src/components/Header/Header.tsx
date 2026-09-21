@@ -11,8 +11,8 @@ interface HeaderProps {
 /* هدر ثابت سایت: ردیف بالا همیشه ثابت، ردیف پایین با اسکرول جمع می‌شود */
 export default function Header({ categories, categoriesError }: HeaderProps) {
   return (
-    <header className="fixed top-0 left-0 right-0 z-[1000] bg-white/90 backdrop-blur-[8px] border-b border-border text-foreground">
-      <div className="max-w-[1536px] mx-auto">
+    <header className="fixed top-0 left-0 right-0 z-1000 bg-white border-b border-border text-foreground">
+      <div className="max-w-384 mx-auto">
         <HeaderClient />
 
         <CollapsibleHeaderBottom>
